@@ -7,6 +7,6 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
  search(inp : string, page:number){
-    return this.http.get(`https://www.omdbapi.com/?s=${inp}&apikey=f6f28027&page=${page}`)
+    return this.http.get(`https://www.omdbapi.com/?s=${inp}&apikey=key&page=${page}`)
  }
 }
