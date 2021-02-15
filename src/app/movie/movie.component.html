@@ -1,0 +1,13 @@
+<p>
+    <mat-toolbar>
+        <button [routerLink]='["/"]' class="btn text-white">{{"<"}} </button>
+      <span>MovieAngel</span>
+    </mat-toolbar>
+  </p>
+<div class="text-center " *ngIf="data">
+<h3 >{{data.Title}}</h3>
+<div style="max-width: 300px!important;" class=" card w-50 lg-col-4 mx-auto" @fade>
+<img class="card-img mw-100" src={{data.Poster}}/>
+</div>
+<h2>Score:<span> {{data.imdbRating * 10}}%</span></h2>
+</div>

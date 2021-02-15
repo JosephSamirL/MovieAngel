@@ -1,0 +1,28 @@
+<p>
+  <mat-toolbar>
+    <span>MovieAngel</span>
+  </mat-toolbar>
+</p>
+<div class="container text-center" @fade>
+    <h1>MovieAngel</h1>
+  <div class="input-group mb-3 w-75 mx-auto">
+    <input class="form-control" placeholder="Search for a movie" aria-label="Search for a movie" aria-describedby="basic-addon2"  [(ngModel)]="search">
+    <div class="input-group-append">
+      <button class="btn btn-outline-primary" type="button" (click)="get()">Search</button>
+    </div>
+  </div>
+  <div *ngIf="res?.Error" @fade><h2>{{res.Error}}</h2></div>
+  <div  style="display: grid; grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) ); gap: 20px; padding: 20px;"  *ngIf="res?.Search">
+    <mat-card *ngFor="let movie of res?.Search" class="bg-white rounded py-0" @fade>
+     <a [routerLink]='["/movies/"+movie.imdbID]'>
+      <picture *ngIf="movie.Poster != 'N/A'">
+        <source media='(min-width:0px)' srcset={{movie.Poster}}>
+        <img mat-card-image src="" alt="Photo of a Shiba Inu">
+      </picture>
+    </a>
+     
+    </mat-card>
+    
+  </div>
+  <button *ngIf="res?.Search" (click)="getNext()" class="btn btn-outline-primary col-12 mb-3"> Show More {{search}}</button>
+  </div>
