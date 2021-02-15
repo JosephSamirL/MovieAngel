@@ -6,6 +6,6 @@ import {HttpClient} from "@angular/common/http"
 export class HttpMService {
   constructor(private http: HttpClient) { }
   get(id: any){
-    return this.http.get(`https://www.omdbapi.com/?i=${id}&apikey=f6f28027`);
+    return this.http.get(`https://www.omdbapi.com/?i=${id}&apikey=Key`);
   }
 }
